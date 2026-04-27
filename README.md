@@ -1,7 +1,7 @@
 # 🔐 PassCore — Password Manager
 
 A modern and secure password manager web app built to help users store, manage, and access their credentials in one place.
-LockBox keeps your passwords organized, protected, and easy to retrieve with a clean and minimal UI.
+PassCore keeps your passwords organized, protected, and easy to retrieve with a clean and minimal UI.
 
 ---
 
@@ -11,7 +11,6 @@ LockBox keeps your passwords organized, protected, and easy to retrieve with a c
 * 👤 User authentication and personalized vault
 * ➕ Add, edit, and delete saved passwords
 * 📋 Copy credentials instantly
-* 🔍 Search saved entries quickly
 * 🎨 Clean and responsive UI
 * ☁️ Persistent storage with database integration
 
@@ -31,14 +30,6 @@ LockBox keeps your passwords organized, protected, and easy to retrieve with a c
 * **MongoDB**
 * **Mongoose**
 
-### Authentication
-
-* **NextAuth.js** *(if implemented)*
-
-### Payments *(Optional Premium Feature)*
-
-* **Razorpay Integration**
-
 ---
 
 ## 📂 Project Structure
@@ -46,13 +37,10 @@ LockBox keeps your passwords organized, protected, and easy to retrieve with a c
 ```bash
 password-manager/
 │
-├── app/                 # App router pages
-├── components/          # Reusable UI components
-├── db/                  # Database connection
-├── models/              # Mongoose models
+├── backend/             # mongodb integration with the frontend
+├── src/components/      # Reusable UI components
+├── src/                 # frontend        
 ├── public/              # Static assets
-├── actions/             # Server actions
-├── utils/               # Utility/helper functions
 └── README.md
 ```
 
@@ -89,27 +77,17 @@ http://localhost:3000
 
 ## 🔑 Environment Variables
 
-Create a `.env.local` file in the root directory and add the following:
+Create a `.env.local` file in the backend folder in the root directory and add the following:
 
 ```env
-MONGODB_URI=your_mongodb_connection_string
-NEXTAUTH_SECRET=your_nextauth_secret
-NEXTAUTH_URL=http://localhost:3000
-
-# Razorpay (Optional)
-RAZORPAY_KEY_ID=your_razorpay_key
-RAZORPAY_KEY_SECRET=your_razorpay_secret
+MONGO_URI=your_mongodb_connection_string/db name
 ```
 
 ---
 
 ## 📸 Core Functionality
 
-### 1. User Authentication
-
-Users can securely sign up and log in to access their personal password vault.
-
-### 2. Password Vault
+### 1. Password Vault
 
 Store credentials such as:
 
@@ -117,7 +95,7 @@ Store credentials such as:
 * Username / Email
 * Password
 
-### 3. Password Management
+### 2. Password Management
 
 Users can:
 
@@ -125,10 +103,6 @@ Users can:
 * Edit saved credentials
 * Delete entries
 * Copy passwords instantly
-
-### 4. Search & Accessibility
-
-Quickly search through saved credentials and access them in seconds.
 
 ---
 
@@ -138,7 +112,6 @@ Quickly search through saved credentials and access them in seconds.
 * Never expose sensitive credentials on the frontend
 * Use environment variables for all secrets
 * Implement proper validation and sanitization
-* Secure authentication sessions using NextAuth / JWT
 
 ---
 
